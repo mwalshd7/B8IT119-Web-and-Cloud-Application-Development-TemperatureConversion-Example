@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>Temperature Conversion</h2>
+        @using (Html.BeginForm("Convert", "Home", FormMethod.Post, new { id = "temperatureForm" }))
+        {
+            <div>
+                @Html.TextBox("celcius", ViewData["C"])
+                @Html.Label("celcius", HttpUtility.HtmlDecode("&deg;C"))
+              
+                    @Html.TextBox("fahrenheit", ViewData["F"], new {style="margin-left:5%"})
+
+                    @Html.Label("fahrenheit", HttpUtility.HtmlDecode("&deg;F"))
+                
+         </div>
+        <div style="margin-top:2%">
+            @Html.RadioButton("temp", "Celcius to Fahernheit", new { onclick = "temperatureForm.submit()" })
+            @Html.Label("Celcius to Fahernheit")
+            @Html.RadioButton("temp", "Fahrenheit to Celcius", new { onclick = "temperatureForm.submit()" })
+            @Html.Label("Fahrenheit to Celcius")
+        </div>
+            @*<input id="Submit1" type="submit" value="Convert"  />*@
+
+        }
+    </div>
+</body>
+
+</html>
